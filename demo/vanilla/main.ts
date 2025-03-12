@@ -1,4 +1,4 @@
-import { init_drawer } from '../lib/index.js'
+import { init_drawer } from '../../lib/index.js'
 
 const el = (selector: string) => document.querySelector(selector) as HTMLElement
 
@@ -13,7 +13,6 @@ const x = el('#x')
 const drawer_x = init_drawer({
   container: x,
   mode: 'x',
-  duration: 2000,
 })
 el('.x-open').addEventListener('click', () => drawer_x.open())
 el('.x-close').addEventListener('click', () => drawer_x.close())

@@ -10,8 +10,8 @@ async function main() {
 
   /** @type {import('esbuild').BuildOptions} */
   const opts = {
-    entryPoints: ['demo/main.ts'],
-    outdir: 'demo',
+    entryPoints: ['demo/vanilla/main.ts'],
+    outdir: 'demo/vanilla',
     bundle: true,
     logLevel: 'debug',
   }

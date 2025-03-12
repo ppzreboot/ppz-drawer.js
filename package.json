@@ -15,7 +15,8 @@
   "scripts": {
     "build": "node ./script/build.js",
     "demo": "node ./script/demo.js dev",
-    "demo-build": "node ./script/demo.js"
+    "demo-build": "node ./script/demo.js",
+    "demo-react": "node ./script/demo-react.js"
   },
   "devDependencies": {
     "@types/react": "^19.0.10",
