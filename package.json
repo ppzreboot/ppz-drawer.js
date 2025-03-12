@@ -1,0 +1,27 @@
+{
+  "name": "ppz-drawer",
+  "version": "0.0.0",
+  "description": "a simple drawer component",
+  "author": "PPz",
+  "license": "UNLICENSED",
+  "type": "module",
+  "files": [
+    "lib/*"
+  ],
+  "exports": {
+    ".": "./lib/index.js",
+    "./react": "./lib/react.js"
+  },
+  "scripts": {
+    "build": "node ./script/build.js",
+    "demo": "node ./script/demo.js dev",
+    "demo-build": "node ./script/demo.js"
+  },
+  "devDependencies": {
+    "@types/react": "^19.0.10",
+    "@types/react-dom": "^19.0.4",
+    "esbuild": "^0.25.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0"
+  }
+}
