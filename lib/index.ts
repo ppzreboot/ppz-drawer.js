@@ -150,6 +150,9 @@ function init_drawer(container: HTMLElement, opts: I_drawer_opts = {}) {
   }
 }
 
+export
+type I_drawer = ReturnType<typeof init_drawer>
+
 function next_frame() {
   return new Promise(resolve => requestAnimationFrame(resolve))
 }
