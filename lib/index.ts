@@ -6,10 +6,8 @@ type I_status = 'open' | 'close'
 
 export
 interface I_drawer_opts {
-  container: HTMLElement
   mode?: I_mode
   close_on_init?: boolean
-
   duration?: number
   easing?: string
 }
@@ -38,9 +36,9 @@ class Helper {
   status: I_status = 'open'
   time_id: number | null = null
 
-  constructor(opts: I_drawer_opts) {
+  constructor(container: HTMLElement, opts: I_drawer_opts) {
     /* 1. init properties */
-    this.container = opts.container
+    this.container = container
     this.mode = opts.mode ?? 'y'
     this.duration = opts.duration ?? 300
     this.easing = opts.easing ?? 'ease'
@@ -139,8 +137,8 @@ async function flip(h: Helper, target: I_status) {
 }
 
 export
-function init_drawer(opts: I_drawer_opts) {
-  const h = new Helper(opts)
+function init_drawer(container: HTMLElement, opts: I_drawer_opts = {}) {
+  const h = new Helper(container, opts)
   return {
     open: () => flip(h, 'open'),
     close: () => flip(h, 'close'),
