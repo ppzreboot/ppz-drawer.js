@@ -13,6 +13,7 @@ const x = el('#x')
 const drawer_x = init_drawer({
   container: x,
   mode: 'x',
+  duration: 5000,
 })
 el('.x-open').addEventListener('click', () => drawer_x.open())
 el('.x-close').addEventListener('click', () => drawer_x.close())
