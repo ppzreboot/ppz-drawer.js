@@ -1,11 +1,13 @@
-import { useRef, ReactNode, useState, useEffect } from 'react'
+import { useRef, ReactNode, useState, useEffect, CSSProperties } from 'react'
 import { init_drawer, I_drawer_opts, I_drawer } from '.'
 
 export
 interface I_drawer_props {
   open: boolean
+  className?: string
+  style?: CSSProperties
   /** opts is not reactive */
-  opts: I_drawer_opts
+  opts: Omit<I_drawer_opts, 'close_on_init' | 'container'>
   children: ReactNode
 }
 
@@ -15,7 +17,11 @@ function Drawer(props: I_drawer_props) {
 
   const [drawer, set_drawer] = useState<I_drawer | null>(null)
   useEffect(() => {
-    set_drawer(init_drawer(container.current!, props.opts))
+    set_drawer(init_drawer({
+      container: container.current!,
+      close_on_init: !props.open,
+      ...props.opts,
+    }))
   }, [])
 
   useEffect(() => {
@@ -27,7 +33,7 @@ function Drawer(props: I_drawer_props) {
       drawer.close()
   }, [drawer, props.open])
 
-  return <div ref={container}>
+  return <div ref={container} className={props.className} style={props.style}>
     {props.children}
   </div>
 }

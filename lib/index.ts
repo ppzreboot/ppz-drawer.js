@@ -6,6 +6,7 @@ type I_status = 'open' | 'close'
 
 export
 interface I_drawer_opts {
+  container: HTMLElement
   mode?: I_mode
   close_on_init?: boolean
   duration?: number
@@ -15,6 +16,7 @@ interface I_drawer_opts {
 class Placeholder {
   constructor(private dom: HTMLElement) {
     dom.style.boxSizing = 'border-box'
+    dom.style.margin = '0'
   }
   hold() {
     const { width, height } = this.dom.getBoundingClientRect()
@@ -36,9 +38,9 @@ class Helper {
   status: I_status = 'open'
   time_id: number | null = null
 
-  constructor(container: HTMLElement, opts: I_drawer_opts) {
+  constructor(opts: I_drawer_opts) {
     /* 1. init properties */
-    this.container = container
+    this.container = opts.container
     this.mode = opts.mode ?? 'y'
     this.duration = opts.duration ?? 300
     this.easing = opts.easing ?? 'ease'
@@ -137,8 +139,8 @@ async function flip(h: Helper, target: I_status) {
 }
 
 export
-function init_drawer(container: HTMLElement, opts: I_drawer_opts = {}) {
-  const h = new Helper(container, opts)
+function init_drawer(opts: I_drawer_opts) {
+  const h = new Helper(opts)
   return {
     open: () => flip(h, 'open'),
     close: () => flip(h, 'close'),

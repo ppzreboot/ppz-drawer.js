@@ -20,7 +20,7 @@ async function main() {
     const ctx = await context(opts)
     await ctx.watch()
     await ctx.serve({
-      servedir: 'demo',
+      servedir: 'demo/vanilla',
     })
   } else
     build(opts)
