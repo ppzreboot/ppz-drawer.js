@@ -1,4 +1,4 @@
-import { init_drawer } from '../../lib/index.js'
+import { init_drawer } from 'ppz-drawer'
 
 const el = (selector: string) => document.querySelector(selector) as HTMLElement
 

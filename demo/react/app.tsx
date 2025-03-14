@@ -1,5 +1,5 @@
 import React from 'react'
-import { Drawer } from '../../lib/react'
+import { Drawer } from 'ppz-drawer/react'
 
 export
 function App() {
