@@ -7,7 +7,7 @@ interface I_drawer_props {
   className?: string
   style?: CSSProperties
   /** opts is not reactive */
-  opts: Omit<I_drawer_opts, 'close_on_init' | 'container'>
+  opts?: Omit<I_drawer_opts, 'close_on_init' | 'container'>
   children: ReactNode
 }
 
